@@ -1,0 +1,40 @@
+{
+  "name": "nocodewp-core",
+  "version": "1.0.0",
+  "description": "A better WordPress.",
+  "author": {
+    "name": "handyplugins",
+    "email": "support@handyplugins.co",
+    "url": "https://handyplugins.co",
+    "role": "developer"
+  },
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "start": "composer install && npm install --production=false && npm run build",
+    "watch": "10up-toolkit watch",
+    "build": "10up-toolkit build",
+    "format-js": "10up-toolkit format-js",
+    "lint-js": "10up-toolkit lint-js",
+    "lint-style": "10up-toolkit lint-style",
+    "test": "10up-toolkit test-unit-jest",
+    "make-pot": "wp-pot --src 'includes/*.php' 'plugin.php' 'assets' --dest-file 'languages/simply-disable-comments.pot' --domain 'simply-disable-comments'",
+    "build-release": "npm install --production=false && composer install --no-dev -o && npm run build && npm run make-pot",
+    "lint-release": "npm install && composer install && npm run lint"
+  },
+  "devDependencies": {
+    "10up-toolkit": "^4.2",
+    "wp-pot-cli": "1.2.4"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "10up-toolkit": {
+    "entry": {
+
+    },
+    "wpDependencyExternals": true
+  }
+}
