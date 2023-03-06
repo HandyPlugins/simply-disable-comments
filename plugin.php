@@ -55,7 +55,7 @@ function setup() {
 function i18n() {
 	$locale = apply_filters( 'plugin_locale', get_locale(), 'simply-disable-comments' );
 	load_textdomain( 'simply-disable-comments', WP_LANG_DIR . '/simply-disable-comments/simply-disable-comments-' . $locale . '.mo' );
-	load_plugin_textdomain( 'simply-disable-comments', false, plugin_basename( __FILE__ ) . '/languages/' );
+	load_plugin_textdomain( 'simply-disable-comments', false, plugin_basename(  plugin_dir_path( __FILE__ ) ) . '/languages/' );
 }
 
 
