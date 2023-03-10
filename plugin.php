@@ -18,6 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+define( 'SIMPLY_DISABLE_COMMENTS_VERSION', '0.1.0' );
+define( 'SIMPLY_DISABLE_COMMENTS_PLUGIN_FILE', __FILE__ );
+define( 'SIMPLY_DISABLE_COMMENTS_URL', plugin_dir_url( __FILE__ ) );
+define( 'SIMPLY_DISABLE_COMMENTS_PATH', plugin_dir_path( __FILE__ ) );
+
 $network_activated = is_network_wide( __FILE__ );
 
 if ( ! defined( 'SIMPLY_DISABLE_COMMENTS_IS_NETWORK' ) ) {
@@ -45,6 +50,8 @@ function setup() {
 	add_filter( 'comments_array', '__return_empty_array', 10, 2 );
 	add_action( 'template_redirect', __NAMESPACE__ . '\\remove_from_admin_bar' );
 	add_action( 'admin_init', __NAMESPACE__ . '\\remove_from_admin_bar' );
+	add_action( 'init', __NAMESPACE__ . '\\remove_comments_blocks', 20 );
+	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_scripts', 20 );
 }
 
 /**
@@ -55,9 +62,59 @@ function setup() {
 function i18n() {
 	$locale = apply_filters( 'plugin_locale', get_locale(), 'simply-disable-comments' );
 	load_textdomain( 'simply-disable-comments', WP_LANG_DIR . '/simply-disable-comments/simply-disable-comments-' . $locale . '.mo' );
-	load_plugin_textdomain( 'simply-disable-comments', false, plugin_basename(  plugin_dir_path( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'simply-disable-comments', false, plugin_basename( plugin_dir_path( __FILE__ ) ) . '/languages/' );
 }
 
+/**
+ * Unregister comments blocks
+ *
+ * @return void
+ */
+function remove_comments_blocks() {
+	$registered_blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
+
+	$comment_blocks = [
+		'core/comment-author-name',
+		'core/comment-content',
+		'core/comment-date',
+		'core/comment-edit-link',
+		'core/comment-reply-link',
+		'core/comment-template',
+		'core/comments',
+		'core/comments-pagination',
+		'core/comments-pagination-next',
+		'core/comments-pagination-numbers',
+		'core/comments-pagination-previous',
+		'core/comments-title',
+		'core/latest-comments',
+		'core/post-comments-form',
+		'core/post-comments',
+	];
+
+	foreach ( $comment_blocks as $block ) {
+		if ( isset( $registered_blocks[ $block ] ) ) {
+			unregister_block_type( $block );
+		}
+	}
+}
+
+/**
+ * Remove registered comments blocks from the editor
+ *
+ * @return void
+ */
+function enqueue_block_editor_scripts() {
+
+	$assets_data = include_once SIMPLY_DISABLE_COMMENTS_PATH . '/dist/js/editor.asset.php';
+
+	wp_enqueue_script(
+		'simply-disable-comments-block-editor',
+		SIMPLY_DISABLE_COMMENTS_URL . 'dist/js/editor.js',
+		$assets_data['dependencies'],
+		$assets_data['version'],
+		true
+	);
+}
 
 /**
  * Remove comment item from admin bar

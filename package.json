@@ -33,7 +33,7 @@
   },
   "10up-toolkit": {
     "entry": {
-
+      "editor": "./assets/js/editor.js"
     },
     "wpDependencyExternals": true
   }
