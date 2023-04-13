@@ -2,17 +2,17 @@
 Contributors: handyplugins, m_uysl, wphandle
 Tags: comments, spam, disable-comments
 Requires at least: 5.0
-Tested up to: 6.1.1
-Requires PHP: 5.6
+Tested up to: 6.2
+Requires PHP: 7.2
 Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Disable comments easily. No more spam.
+A simple way to fully disable comments on your WordPress.
 
 == Description ==
 
-This plugin simply removes the commenting feature on your WordPress. It's a simple plugin just setup and forget.
+This plugin simply removes the commenting feature on your WordPress. It's a simple plugin just setup and forget, no configuration needed.
 
 == Installation ==
 

@@ -1,13 +1,15 @@
 <?php
 /**
- * Plugin Name:     Simply Disable Comments
- * Plugin URI:      https://wordpress.org/plugins/simply-disable-comments/
- * Description:     A simple way to complete disable comments on your WordPress.
- * Author:          HandyPlugins
- * Author URI:      https://handyplugins.co/
- * Text Domain:     simply-disable-comments
- * Domain Path:     /languages
- * Version:         0.1.0
+ * Plugin Name:       Simply Disable Comments
+ * Plugin URI:        https://wordpress.org/plugins/simply-disable-comments/
+ * Description:       A simple way to fully disable comments on your WordPress.
+ * Author:            HandyPlugins
+ * Author URI:        https://handyplugins.co/
+ * Text Domain:       simply-disable-comments
+ * Domain Path:       /languages
+ * Version:           0.1.0
+ * Requires at least: 5.0
+ * Requires PHP:      7.2
  *
  * @package         SimplyDisableComments
  */
