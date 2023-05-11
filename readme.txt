@@ -12,7 +12,7 @@ A simple way to fully disable comments on your WordPress.
 
 == Description ==
 
-This plugin simply removes the commenting feature on your WordPress. It's a simple plugin just setup and forget, no configuration needed.
+This plugin simply removes the commenting feature on your WordPress. It's a simple plugin; just setup and forget – no configuration is needed.
 
 == Installation ==
 
@@ -32,11 +32,16 @@ This plugin simply removes the commenting feature on your WordPress. It's a simp
 
 = Where is the settings page? =
 
-This plugin doesn't have a settings page. It's just a simple plugin to disable comments. However, on multisite it registers an option under general settings when it is activated network-wide. This way, you can enable/disable comments on a per-site basis.
+This plugin doesn't have a settings page. It's just a simple plugin to disable comments. However, on multisite it registers an option under general settings when it is activated network-wide. This way, site admins can enable/disable comments on a per-site basis.
 
 = Is it compatible with multisite? =
 
-Yes! It's compatible with both single site and multisite.
+Yes! It's compatible with both single sites and multisite.
+
+== Screenshots ==
+
+1. A general settings item on multisite when activated network-wide to allow site owners can control the commenting.
+
 
 == Changelog ==
 
