@@ -255,7 +255,7 @@ function register_general_settings_field() {
 		'simply-disable-comments-enable-comments',
 		esc_html__( 'Enable Comments', 'simply-disable-comments' ),
 		__NAMESPACE__ . '\\render_general_settings_field',
-		'general',
+		'general'
 	);
 }
 
