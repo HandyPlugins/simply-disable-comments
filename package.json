@@ -22,7 +22,7 @@
     "lint-release": "npm install && composer install && npm run lint"
   },
   "devDependencies": {
-    "10up-toolkit": "^5.1"
+    "10up-toolkit": "^5.2"
   },
   "engines": {
     "node": ">=12.0.0"
