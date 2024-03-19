@@ -7,7 +7,7 @@
  * Author URI:        https://handyplugins.co/
  * Text Domain:       simply-disable-comments
  * Domain Path:       /languages
- * Version:           0.1.1
+ * Version:           0.1.2
  * Requires at least: 5.0
  * Requires PHP:      7.2
  *
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'SIMPLY_DISABLE_COMMENTS_VERSION', '0.1.1' );
+define( 'SIMPLY_DISABLE_COMMENTS_VERSION', '0.1.2' );
 define( 'SIMPLY_DISABLE_COMMENTS_PLUGIN_FILE', __FILE__ );
 define( 'SIMPLY_DISABLE_COMMENTS_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIMPLY_DISABLE_COMMENTS_PATH', plugin_dir_path( __FILE__ ) );
