@@ -66,6 +66,5 @@ Yes! It's compatible with both single sites and multisite.
 * Bugfix
 * Tested with WP 6.3
 
-
 = 0.1.0 =
 * Initial release
