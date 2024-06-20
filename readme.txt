@@ -37,7 +37,7 @@ Bug reports and pull requests are welcome on [Github](https://github.com/HandyPl
 
 = Manual Installation =
 1. Upload the `simply-disable-comments` folder to the `/wp-content/plugins/` directory
-2. Activate the Powered Cache plugin through the 'Plugins' menu in WordPress
+2. Activate the Simply Disable Comments plugin through the 'Plugins' menu in WordPress
 3. That's all.
 
 
