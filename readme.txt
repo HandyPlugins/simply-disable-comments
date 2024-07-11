@@ -2,9 +2,9 @@
 Contributors: handyplugins, m_uysl, wphandle
 Tags: comments, spam, disable-comments
 Requires at least: 5.0
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 7.2
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://handyplugins.co/donate/
@@ -57,6 +57,11 @@ Yes! It's compatible with both single sites and multisite.
 
 
 == Changelog ==
+
+= 0.1.3 (2024-07-11) =
+* Added playground blueprint.
+* Dependency updates.
+* Tested with WP 6.6
 
 = 0.1.2 (2024-03-19) =
 * Dependency updates.
