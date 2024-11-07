@@ -2,7 +2,7 @@
 Contributors: handyplugins, m_uysl, wphandle
 Tags: comments, spam, disable-comments
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.2
 Stable tag: 0.1.3
 License: GPLv2 or later
