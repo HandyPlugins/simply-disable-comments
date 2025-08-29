@@ -73,6 +73,10 @@ function i18n() {
  * @return void
  */
 function remove_comments_blocks() {
+	if(!class_exists('\WP_Block_Type_Registry')){
+		return;
+	}
+
 	$registered_blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
 
 	$comment_blocks = [
