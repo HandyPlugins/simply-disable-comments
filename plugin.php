@@ -7,7 +7,7 @@
  * Author URI:        https://handyplugins.co/
  * Text Domain:       simply-disable-comments
  * Domain Path:       /languages
- * Version:           0.1.4
+ * Version:           0.2
  * Requires at least: 5.0
  * Requires PHP:      7.2
  *
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'SIMPLY_DISABLE_COMMENTS_VERSION', '0.1.4' );
+define( 'SIMPLY_DISABLE_COMMENTS_VERSION', '0.2' );
 define( 'SIMPLY_DISABLE_COMMENTS_PLUGIN_FILE', __FILE__ );
 define( 'SIMPLY_DISABLE_COMMENTS_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIMPLY_DISABLE_COMMENTS_PATH', plugin_dir_path( __FILE__ ) );
@@ -73,6 +73,10 @@ function i18n() {
  * @return void
  */
 function remove_comments_blocks() {
+	if ( ! class_exists( '\WP_Block_Type_Registry' ) ) {
+		return;
+	}
+
 	$registered_blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
 
 	$comment_blocks = [
