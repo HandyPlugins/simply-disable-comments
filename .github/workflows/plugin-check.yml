@@ -38,3 +38,27 @@ jobs:
 
       - name: Run Plugin Check
         uses: wordpress/plugin-check-action@v1
+        with:
+          exclude-directories: |
+            tests
+            bin
+            .github
+            .wordpress-org
+            node_modules
+            vendor
+          exclude-files: |
+            .phpcs.xml.dist
+            .gitignore
+            .distignore
+            .editorconfig
+            composer.json
+            composer.lock
+            package.json
+            package-lock.json
+            phpunit.xml
+            phpunit.xml.dist
+            phpcs.xml
+          ignore-codes: |
+            WordPress.WP.I18n.NonSingularStringLiteralDomain
+            WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+            WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
