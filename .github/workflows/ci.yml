@@ -10,6 +10,8 @@ jobs:
   lint:
     name: Lint (PHP ${{ matrix.php }})
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         php: ['7.2', '7.4', '8.0', '8.1', '8.2']
@@ -32,6 +34,8 @@ jobs:
   test:
     name: Test (PHP ${{ matrix.php }}, WP ${{ matrix.wordpress }})
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         php: ['7.2', '7.4', '8.0', '8.1', '8.2']
