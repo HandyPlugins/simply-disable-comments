@@ -30,7 +30,7 @@ class Plugin_Test extends WP_UnitTestCase {
 	 * Test that comments array returns empty
 	 */
 	public function test_comments_array_returns_empty() {
-		$post_id = $this->factory->post->create();
+		$post_id  = $this->factory->post->create();
 		$comments = get_comments( array( 'post_id' => $post_id ) );
 		$this->assertEmpty( $comments );
 	}
@@ -39,7 +39,7 @@ class Plugin_Test extends WP_UnitTestCase {
 	 * Test that XML-RPC comment method is disabled
 	 */
 	public function test_xmlrpc_comment_method_disabled() {
-		$methods = array(
+		$methods  = array(
 			'wp.newComment' => 'test',
 			'wp.getPost'    => 'test',
 		);
@@ -56,7 +56,7 @@ class Plugin_Test extends WP_UnitTestCase {
 			'comments' => array(),
 			'posts'    => array(),
 		);
-		$filtered = \SimplyDisableComments\remove_rest_api_endpoints( $endpoints );
+		$filtered  = \SimplyDisableComments\remove_rest_api_endpoints( $endpoints );
 		$this->assertArrayNotHasKey( 'comments', $filtered );
 		$this->assertArrayHasKey( 'posts', $filtered );
 	}
@@ -66,8 +66,8 @@ class Plugin_Test extends WP_UnitTestCase {
 	 */
 	public function test_disable_rest_api_comments_returns_error() {
 		$prepared_comment = array();
-		$request = new WP_REST_Request();
-		$result = \SimplyDisableComments\disable_rest_api_comments( $prepared_comment, $request );
+		$request          = new WP_REST_Request();
+		$result           = \SimplyDisableComments\disable_rest_api_comments( $prepared_comment, $request );
 		$this->assertInstanceOf( 'WP_Error', $result );
 		$this->assertEquals( 'rest_comments_disabled', $result->get_error_code() );
 	}
@@ -78,7 +78,7 @@ class Plugin_Test extends WP_UnitTestCase {
 	public function test_post_types_dont_support_comments() {
 		// Manually call the function
 		\SimplyDisableComments\remove_from_post_type_support();
-		
+
 		// Test that post type doesn't support comments
 		$this->assertFalse( post_type_supports( 'post', 'comments' ) );
 		$this->assertFalse( post_type_supports( 'post', 'trackbacks' ) );
