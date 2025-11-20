@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.2', '7.4', '8.0', '8.1', '8.2']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction
+
+      - name: Run PHPCS
+        run: composer lint
+
+  test:
+    name: Test (PHP ${{ matrix.php }}, WP ${{ matrix.wordpress }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.2', '7.4', '8.0', '8.1', '8.2']
+        wordpress: ['latest']
+        include:
+          - php: '8.0'
+            wordpress: '6.0'
+          - php: '8.1'
+            wordpress: '6.2'
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mysqli
+          coverage: xdebug
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction
+
+      - name: Install WordPress test suite
+        run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1:3306 ${{ matrix.wordpress }}
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit --coverage-clover=clover.xml
+
+      - name: Upload coverage to Codecov
+        if: matrix.php == '8.0' && matrix.wordpress == 'latest'
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./clover.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false

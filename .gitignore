@@ -25,3 +25,8 @@ Session.vim
 Thumbs.db
 Desktop.ini
 dist/js/*.txt
+
+# Test coverage
+clover.xml
+coverage-html
+.phpunit.result.cache
