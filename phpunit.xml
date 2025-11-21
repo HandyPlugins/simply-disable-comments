@@ -1,18 +1,27 @@
+<?xml version="1.0"?>
 <phpunit
 	bootstrap="tests/bootstrap.php"
 	backupGlobals="false"
-	processIsolation="false"
-	colors="false">
+	colors="true"
+	convertErrorsToExceptions="true"
+	convertNoticesToExceptions="true"
+	convertWarningsToExceptions="true"
+	>
 	<testsuites>
 		<testsuite name="Default">
-			<directory suffix="Tests.php">./tests/phpunit</directory>
+			<directory prefix="test-" suffix=".php">./tests/</directory>
+			<exclude>./tests/test-sample.php</exclude>
 		</testsuite>
 	</testsuites>
-	<filter>
-		<whitelist>
-			<directory suffix=".php">./includes</directory>
-		</whitelist>
-	</filter>
+	<coverage processUncoveredFiles="true">
+		<include>
+			<file>./plugin.php</file>
+		</include>
+		<report>
+			<clover outputFile="clover.xml"/>
+			<html outputDirectory="coverage-html"/>
+		</report>
+	</coverage>
 	<php>
 		<ini name="error_reporting" value="32767" />
 		<ini name="display_errors" value="1" />

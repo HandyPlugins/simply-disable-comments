@@ -1,6 +1,6 @@
 # [Simply Disable Comments](https://wordpress.org/plugins/simply-disable-comments/) #
 
-![Support Level](https://img.shields.io/badge/support-active-green.svg) [![Release Version](https://img.shields.io/wordpress/plugin/v/simply-disable-comments?label=Release%20Version)](https://github.com/handyplugins/simply-disable-comments/releases) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/simply-disable-comments?label=WordPress) ![Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/simply-disable-comments?label=PHP)
+![Support Level](https://img.shields.io/badge/support-active-green.svg) [![Release Version](https://img.shields.io/wordpress/plugin/v/simply-disable-comments?label=Release%20Version)](https://github.com/handyplugins/simply-disable-comments/releases) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/simply-disable-comments?label=WordPress) ![Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/simply-disable-comments?label=PHP) [![CI](https://github.com/HandyPlugins/simply-disable-comments/actions/workflows/ci.yml/badge.svg)](https://github.com/HandyPlugins/simply-disable-comments/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/HandyPlugins/simply-disable-comments/branch/main/graph/badge.svg)](https://codecov.io/gh/HandyPlugins/simply-disable-comments)
 
 ### What does this plugin do?
 
