@@ -18,6 +18,8 @@ domReady( () => {
 		'core/latest-comments',
 		'core/post-comments-form',
 		'core/post-comments',
+		'core/post-comments-count',
+		'core/post-comments-link',
 	];
 
 	blocks.forEach( ( block ) => {

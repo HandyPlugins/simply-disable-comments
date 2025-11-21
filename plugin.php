@@ -96,6 +96,8 @@ function remove_comments_blocks() {
 		'core/latest-comments',
 		'core/post-comments-form',
 		'core/post-comments',
+		'core/post-comments-count',
+		'core/post-comments-link',
 	];
 
 	foreach ( $comment_blocks as $block ) {
