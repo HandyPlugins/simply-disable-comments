@@ -2,9 +2,9 @@
 Contributors: handyplugins, m_uysl, wphandle
 Tags: comments, spam, disable-comments
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://handyplugins.co/donate/
@@ -57,6 +57,11 @@ Yes! It's compatible with both single sites and multisite.
 
 
 == Changelog ==
+
+= 0.3 (2025-11-21) =
+* Remove `core/post-comments-count` and `core/post-comments-link` blocks.
+* Dependency updates.
+* Tested with WP 6.9
 
 = 0.2 (2025-08-30) =
 * Dependency updates.
